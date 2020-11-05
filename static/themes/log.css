@@ -1,0 +1,21 @@
+.log-message
+{
+    background: #fff;
+    width: max-content;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px #ddd;
+    margin-top: -8px;
+    font-family: sans-serif;
+    font-size: 12pt;
+}
+
+.log-message-error
+{
+    color: #e44141;
+}
+
+.log-message-warn
+{
+    color: #ecb847;
+}

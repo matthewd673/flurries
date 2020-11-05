@@ -1,0 +1,24 @@
+html, body
+{
+    font-family: sans-serif;
+}
+
+.wordmark
+{
+    color: #7cb4e9;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.header
+{
+    font-style: italic;
+    display: inline-block;
+    margin-left: 32px;
+    font-family: monospace;
+    color: #c9c9c9;
+    font-size: 24pt;
+    font-weight: lighter;
+}

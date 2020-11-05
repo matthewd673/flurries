@@ -1,13 +1,15 @@
 <html>
     <head>
         <title>flurries - view</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='themes/log.css') }}">
     </head>
     <body>
-        <h1>flurries</h1>
-        <h2>log viewer</h2>
+        <h1 class="wordmark">flurries</h1>
+        <h2 class="header">log viewer</h2>
         <div class="log-container">
-            {% for s in logoutput %}
-                <p>{{ s }}</p>
+            {% for msg in logoutput %}
+                <p class="log-message log-message-{{ msg.category }}"><b>{{ msg.category }}:</b> {{ msg.message }}</p>
             {% endfor %}
         </div>
     </body>
