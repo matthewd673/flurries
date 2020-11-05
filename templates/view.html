@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>flurries - view</title>
+    </head>
+    <body>
+        <h1>flurries</h1>
+        <h2>log viewer</h2>
+        <div class="log-container">
+            {% for s in logoutput %}
+                <p>{{ s }}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
