@@ -7,10 +7,13 @@
     <body>
         <h1 class="wordmark">flurries</h1>
         <h2 class="header">log viewer</h2>
-        <div class="log-container">
+        <div class="log-container" id="log-container">
+            <!--
             {% for msg in logoutput %}
-                <p class="log-message log-message-{{ msg.category }}"><b>{{ msg.category }}:</b> {{ msg.message }}</p>
+                <p class="log-message log-message-{{ msg.category }}"><b>{{ msg.category }}:</b> {{ msg.message }} <span class="timestamp">{{ msg.timestamp }}</span></p>
             {% endfor %}
+            -->
         </div>
+        <script src="{{ url_for('static', filename='scripts/poll.js') }}"></script>
     </body>
 </html>

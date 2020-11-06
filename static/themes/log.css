@@ -19,3 +19,11 @@
 {
     color: #ecb847;
 }
+
+.timestamp
+{
+    color: #ccc;
+    font-family: monospace;
+    font-style: italic;
+    font-size: 8pt;
+}

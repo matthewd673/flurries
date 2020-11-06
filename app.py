@@ -1,38 +1,71 @@
 from flask import Flask, render_template
-from flask.helpers import url_for
+from flask.helpers import get_template_attribute, url_for
+from datetime import datetime
+
 app = Flask(__name__)
 
 class Message:
-    def __init__(self, message, category):
+    def __init__(self, message, category, timestamp):
         self.message = message
         self.category = category
+        self.timestamp = timestamp
+
+class State:
+    def __init__(self, property, current_state, timestamp):
+        self.property = property
+        self.current_state = current_state
+        self.timestamp = timestamp
 
 log = []
+states = []
 
 @app.route('/')
 def hello():
     return render_template("index.html", content="Home")
 
+'''
 @app.route('/view')
 def view():
-    output = []
-
-    return render_template("view.html", logoutput=log)
+    output = render_template("view.html", logoutput=log)
+    log.clear()
+    return output
+'''
+@app.route('/view')
+def view():
+    return render_template("view.html")
 
 @app.route('/log/<message>')
 def log_message(message=None):
-    new_log = Message(message, "log")
-    log.append(new_log)
-    return "❄ " + message
+    return write_log(message, "log")
 
 @app.route('/log/error/<message>')
 def log_error(message=None):
-    new_log = Message(message, "error")
-    log.append(new_log)
-    return "🛑 " + message
+    return write_log(message, "error")
 
 @app.route('/log/warn/<message>')
 def log_warn(message=None):
-    new_log = Message(message, "warn")
+    return write_log(message, "warn")
+
+@app.route('/log/state/<property>/<current_state>')
+def log_state(property=None, current_state=None):
+    update_state(property, current_state)
+
+def write_log(message, category):
+    new_log = Message(message, category, get_timestamp())
     log.append(new_log)
-    return "⚠ " + message
+    return message
+
+def update_state(property, current_state):
+    new_state = State(property, current_state, get_timestamp())
+    states.append(new_state)
+    return property + ": " + current_state
+
+def get_timestamp():
+    current_time = datetime.now().strftime("%H:%M:%S")
+    return current_time
+
+@app.route('/poll')
+def poll_update():
+    output = render_template("log-item.html", logoutput=log)
+    log.clear()
+    return output
