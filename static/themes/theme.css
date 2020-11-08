@@ -1,24 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat&display=swap');
+
 html, body
 {
-    font-family: sans-serif;
+    font-family: "Montserrat", sans-serif;
+    background-color: #fff;
+    color: #495464;
+    margin: 0;
+    padding: 0;
+}
+
+.header-content
+{
+    background-color: #f4f4f2;
+    margin: 0;
+    padding-left: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.header-spacer
+{
+    display: block;
+    height: 9vh;
 }
 
 .wordmark
 {
-    color: #7cb4e9;
+    color: #7579e7;
     display: inline-block;
-    font-family: monospace;
-    font-size: 24pt;
+    font-size: 16pt;
     font-weight: bold;
 }
 
 .header
 {
-    font-style: italic;
     display: inline-block;
-    margin-left: 32px;
-    font-family: monospace;
-    color: #c9c9c9;
-    font-size: 24pt;
+    margin-left: 12px;
+    font-size: 14pt;
     font-weight: lighter;
+    padding-bottom: 1pt;
+    color: #bbbfca;
+}
+
+.log-container
+{
+    font-family: "Montserrat", sans-serif;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.log-message
+{
+    padding: 8px;
+    font-size: 12pt;
+    border-bottom: solid 1px #e8e8e8;
+}
+
+.log-message-category
+{
+    font-weight: bold;
+    margin-right: 48px;
+    margin-left: 16px;
+    font-family: "Inconsolata", monospace;
+    color: #495464;
+}
+
+.circle
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 1vw;
+    margin-right: 2vw;
+}
+
+.msg-cat-log
+{
+    background-color: #e8e8e8;
+}
+
+.msg-cat-warn
+{
+    background-color: #edc988;
+}
+
+.msg-cat-error
+{
+    background-color: #d7385e;
+}
+
+.log-message-timestamp
+{
+    font-family: "Inconsolata", monospace;
+    color: #e8e8e8;
+    float: right;
 }

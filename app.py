@@ -8,6 +8,14 @@ class Message:
     def __init__(self, message, category, timestamp):
         self.message = message
         self.category = category
+        
+        emoji_content = "msg"
+        if(category == "warn"):
+            emoji_content = "wrn"
+        if(category == "error"):
+            emoji_content = "err"
+        self.emoji = emoji_content
+
         self.timestamp = timestamp
 
 class State:
@@ -23,16 +31,11 @@ states = []
 def hello():
     return render_template("index.html", content="Home")
 
-'''
 @app.route('/view')
 def view():
     output = render_template("view.html", logoutput=log)
-    log.clear()
+    #log.clear()
     return output
-'''
-@app.route('/view')
-def view():
-    return render_template("view.html")
 
 @app.route('/log/<message>')
 def log_message(message=None):
@@ -52,7 +55,7 @@ def log_state(property=None, current_state=None):
 
 def write_log(message, category):
     new_log = Message(message, category, get_timestamp())
-    log.append(new_log)
+    log.insert(0, new_log)
     return message
 
 def update_state(property, current_state):
