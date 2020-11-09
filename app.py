@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from flask.helpers import get_template_attribute, url_for
+
 from datetime import datetime
+import time
 
 app = Flask(__name__)
 
@@ -59,6 +61,12 @@ def write_log(message, category):
     return message
 
 def update_state(property, current_state):
+    for s in states:
+        if(s.property == property):
+            s.current_state = current_state
+            s.timestamp = get_timestamp()
+            return property + ": " + current_state
+    
     new_state = State(property, current_state, get_timestamp())
     states.append(new_state)
     return property + ": " + current_state
@@ -69,6 +77,8 @@ def get_timestamp():
 
 @app.route('/poll')
 def poll_update():
+    while(len(log) == 0):
+        time.sleep(0.5)
     output = render_template("log-item.html", logoutput=log)
     log.clear()
     return output
