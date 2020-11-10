@@ -10,13 +10,6 @@ class Message:
     def __init__(self, message, category, timestamp):
         self.message = message
         self.category = category
-        
-        emoji_content = "msg"
-        if(category == "warn"):
-            emoji_content = "wrn"
-        if(category == "error"):
-            emoji_content = "err"
-        self.emoji = emoji_content
 
         self.timestamp = timestamp
 
@@ -50,6 +43,10 @@ def log_error(message=None):
 @app.route('/log/warn/<message>')
 def log_warn(message=None):
     return write_log(message, "warn")
+
+@app.route('/log/highlight/<message>')
+def log_highlight(message=None):
+    return write_log(message, "highlight")
 
 @app.route('/log/state/<property>/<current_state>')
 def log_state(property=None, current_state=None):

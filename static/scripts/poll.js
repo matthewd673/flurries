@@ -1,13 +1,13 @@
 function update() {
 
-    console.log("polling...");
+    var date = new Date();
+    document.getElementById("polling-info-text").innerHTML = "Polling at " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
     var xhttp = new XMLHttpRequest();
     xhttp.timeout = 50000;
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log("got response");
             document.getElementById("log-container").insertAdjacentHTML("afterbegin", this.responseText);
             update();
         }

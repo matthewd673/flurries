@@ -45,6 +45,37 @@ html, body
     color: #bbbfca;
 }
 
+.footer-content
+{
+    background-color: #f4f4f4;
+    margin: 0;
+    padding-left: 2vw;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+.detail-text
+{
+    font-family: "Inconsolata", monospace;
+    font-size: 8pt;
+    color: #495464;
+}
+
+.hor-space
+{
+    display: inline-block;
+    width: 32px;
+}
+
+.clickable
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .log-container
 {
     font-family: "Montserrat", sans-serif;
@@ -92,6 +123,11 @@ html, body
 .msg-cat-error
 {
     background-color: #d7385e;
+}
+
+.msg-cat-highlight
+{
+    background-color: #7579e7;
 }
 
 .log-message-timestamp

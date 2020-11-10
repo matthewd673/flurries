@@ -3,13 +3,18 @@
         <title>flurries - view</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='themes/theme.css') }}">
     </head>
-    <body>
+    <body onload="update();">
         <div class="header-content">
             <h1 class="wordmark">flurries</h1>
         </div>
         <div class="header-spacer"></div>
         <div class="log-container" id="log-container">
             
+        </div>
+        <div class="footer-content">
+            <span class="detail-text" id="polling-info-text">Not polling</span>
+            <span class="hor-space"></span>
+            <span class="detail-text clickable" onclick="update();">Refresh</span>
         </div>
         <script src="{{ url_for('static', filename='scripts/poll.js') }}"></script>
     </body>
