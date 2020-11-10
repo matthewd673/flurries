@@ -1,0 +1,3 @@
+{% for msg in logoutput %}
+    <p class="log-message"><span class="circle msg-cat-{{ msg.category }}"></span> {{ msg.message }} <span class="log-message-timestamp">{{ msg.timestamp }}</span></p>
+{% endfor %}

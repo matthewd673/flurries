@@ -1,0 +1,3 @@
+{% for state in stateoutput %}
+    <p class="state-display" id="state-display-statename-{{ state.property }}"><b>{{ state.property }}:</b> {{ state.current_state }} <span class="state-timestamp">{{ state.timestamp }}</span></p>
+{% endfor %}
